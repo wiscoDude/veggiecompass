@@ -1,0 +1,22 @@
+%h1 Your Plants
+
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th
+      %th
+      %th
+  %tbody
+    - @plants.each do |plant|
+      %tr
+        %td= plant.name
+        %td= plant.plant_type.name
+        %td= link_to 'Show', plant
+        %td= link_to 'Edit', edit_plant_path(plant)
+        %td= link_to 'Destroy', plant, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Plant', new_plant_path

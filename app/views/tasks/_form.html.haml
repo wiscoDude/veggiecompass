@@ -1,0 +1,13 @@
+= simple_form_for(@task, :html => {:class => 'form form-vertical' }) do |f|
+  -if @task.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - @task.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :minutes, :placeholder => "Enter in hours"
+  = f.input :category, :collection => Task::CATEGORIES
+  = f.input :plant_id, :collection => current_user.plants
+  = f.input :task_date, :as => :date, :label => "Date" 
+  = f.input :notes, :input_html => { :rows => 4 }
+  = f.button :submit

@@ -1,0 +1,12 @@
+.navbar
+  .navbar-inner
+    .container
+      = link_to "Veggie Compass", "/", :class => "brand"
+      %ul(class="nav")
+        - if current_user.present?
+          %li(class="#{controller.controller_name == 'plants' ? 'active' : ''}")
+            %a(href = plants_path) Your Plants
+          %li(class="#{controller.controller_name == 'tasks' ? 'active' : ''}")
+            %a(href = tasks_path) Your Time Entries
+          %li(class="#{controller.controller_name == 'tasks' && controller.action_name == 'new' ? 'active' : ''}")
+            = link_to "Enter Time", new_task_path

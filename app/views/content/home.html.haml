@@ -1,0 +1,13 @@
+
+.hero-unit
+  - if current_user.present?
+    %p
+      = link_to "Enter Time", new_task_path, :class => "btn btn-primary"
+  - else
+    %h1.small Veggie Compass
+    %br
+    %p
+      = link_to "Sign Up", new_user_registration_path, :class => "btn btn-primary"
+      
+      = link_to "Sign In", new_user_session_path, :class => "btn btn-success"
+      

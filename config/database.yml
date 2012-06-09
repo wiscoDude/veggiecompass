@@ -1,0 +1,18 @@
+common: &COMMON
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 
+  min_messages: warning
+
+development:
+  <<: *COMMON
+  database: veggiecompass_development
+
+test: &TEST
+  <<: *COMMON
+  database: veggiecompass_test
+
+cucumber:
+  <<: *TEST

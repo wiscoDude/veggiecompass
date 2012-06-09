@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @plant.name
+%p
+  %b Type:
+  = @plant.plant_type_id
+%p
+  %b User:
+  = @plant.user_id
+
+= link_to 'Edit', edit_plant_path(@plant)
+\|
+= link_to 'Back', plants_path

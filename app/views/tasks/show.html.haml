@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Minutes:
+  = @task.minutes
+%p
+  %b Plant:
+  = @task.plant_id
+%p
+  %b User:
+  = @task.user_id
+%p
+  %b Task date:
+  = @task.task_date
+%p
+  %b Notes:
+  = @task.notes
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', tasks_path

@@ -1,0 +1,25 @@
+%h1 Your Entered Time
+%p
+  = link_to "Enter New Time", new_task_path, :class => "btn btn-primary"
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Minutes
+      %th Plant
+      %th Date
+      %th Notes
+      %th
+      %th
+      %th
+      %th
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.minutes
+        %td= task.plant.present? ? task.plant.name : ""
+        %td= task.task_date.strftime("%b %d, %Y")
+        %td= task.notes
+        %td= link_to 'Show', task
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
+

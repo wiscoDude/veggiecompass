@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @plant_type.name
+
+= link_to 'Edit', edit_plant_type_path(@plant_type)
+\|
+= link_to 'Back', plant_types_path

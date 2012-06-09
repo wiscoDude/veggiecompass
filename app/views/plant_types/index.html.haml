@@ -1,0 +1,19 @@
+%h1 Listing plant_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @plant_types.each do |plant_type|
+    %tr
+      %td= plant_type.name
+      %td= link_to 'Show', plant_type
+      %td= link_to 'Edit', edit_plant_type_path(plant_type)
+      %td= link_to 'Destroy', plant_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Plant type', new_plant_type_path
