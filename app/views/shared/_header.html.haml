@@ -6,7 +6,7 @@
         - if current_user.present?
           %li(class="#{controller.controller_name == 'plants' ? 'active' : ''}")
             %a(href = plants_path) Your Plants
-          %li(class="#{controller.controller_name == 'tasks' ? 'active' : ''}")
+          %li(class="#{controller.controller_name == 'tasks' && controller.action_name != 'new' ? 'active' : ''}")
             %a(href = tasks_path) Your Time Entries
           %li(class="#{controller.controller_name == 'tasks' && controller.action_name == 'new' ? 'active' : ''}")
             = link_to "Enter Time", new_task_path

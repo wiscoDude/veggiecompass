@@ -1,0 +1,13 @@
+- @mobile_page_name = @plant.name
+
+%p
+  %b Name:
+  = @plant.name
+%p
+  %b Type:
+  = @plant.plant_type.name
+%p
+  = link_to 'Edit', edit_plant_path(@plant)
+  \|
+  = link_to 'Back', plants_path
+= button_to 'Delete This Plant', plant_path(@plant), :method => :delete

@@ -1,0 +1,15 @@
+- @mobile_page_name = "Previous Time"
+
+%ul{:data => {:role => 'listview', :inset => 'true', :filter => 'true'}} 
+  - @tasks.group_by(&:task_date).each do |date, tasks|
+    %li{:data => {:role => 'list-divider'}}
+      = date.strftime("%b %d, %Y")
+    - tasks.each do |task|
+      %li
+        %a{:href => task_path(task)}
+          ="#{task.minutes} hours - "
+          = task.category
+          = task.plant.present? ? ": #{task.plant.name}" : ""
+  
+        = link_to 'show', task
+

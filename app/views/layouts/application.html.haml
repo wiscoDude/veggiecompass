@@ -7,12 +7,12 @@
     = csrf_meta_tags
     
   %body
-    = render 'shared/header'
-            
-    .container
-      .content
-        = render :partial => "shared/flash_messages", :locals => {:flash => flash}
+    %div
+      = render 'shared/header'      
+      .container
+        .content
+          = render :partial => "shared/flash_messages", :locals => {:flash => flash}
 
-        = yield
-      %footer
-        = render 'shared/footer'
+          = yield
+        %footer
+          = render 'shared/footer'

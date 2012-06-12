@@ -1,0 +1,12 @@
+- @mobile_page_name = "Plants"
+
+%ul{:data => {:role => 'listview', :inset => 'true', :filter => 'true'}} 
+  - @plants.each do |plant|
+    %li
+      %a{:href => plant_path(plant)}
+        = plant.plant_type.name 
+        ="-"
+        = plant.name
+
+      = link_to 'show', plant
+

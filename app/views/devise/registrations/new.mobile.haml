@@ -1,0 +1,11 @@
+- @mobile_page_name = "Sign Up"
+
+%div
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = f.input :email, :required => true, :autofocus => true, :placeholder => 'email'
+    = f.input :password, :required => true, :placeholder => 'password'
+    = f.input :password_confirmation, :required => true, :placeholder => 'repeat password'
+  
+    = f.button :submit, "Sign up"
+
+= render :partial => "devise/shared/links"

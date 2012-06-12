@@ -8,6 +8,7 @@
   = f.input :plant_id, :collection => current_user.plants
   = f.input :category, :collection => Task::CATEGORIES
   = f.input :minutes, :placeholder => "Enter in hours", :label => "Hours"
-  = f.input :task_date, :as => :date, :label => "Date" 
+  %div{:data => {:role => 'controlgroup', :type => 'vertical'}}
+    = f.input :task_date, :as => :date, :label => "Date" 
   = f.input :notes, :input_html => { :rows => 4 }
-  = f.button :submit
+  = f.button :submit, :value => "Submit Time"

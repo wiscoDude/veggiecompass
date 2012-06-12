@@ -1,5 +1,11 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
+# http://stackoverflow.com/questions/5794926/login-with-devise-via-jquery-mobile
+ActionController::Responder.class_eval do
+  alias :to_mobile :to_html
+end
+
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

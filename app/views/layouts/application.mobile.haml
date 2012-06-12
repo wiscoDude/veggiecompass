@@ -1,0 +1,30 @@
+!!! 5
+%html{:lang => 'en'}
+  %head
+    %meta{:charset => 'utf-8'}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %meta{:name => 'format-detection', :content => 'telephone=no'}
+    %title= 'My Mobile App'
+    %link{:rel => 'stylesheet', :href => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css'}
+    %script{:src => 'http://code.jquery.com/jquery-1.6.2.min.js'}
+    %script{:src => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js'}
+  %body
+    %div{:data => {:role => 'page'}}
+      %div{:data => {:role => 'navbar'}}
+        %ul
+          %li 
+            = link_to "Home", "/", :data => {:icon => 'home', :theme => 'b'}
+          - if current_user.present?
+            %li 
+              = link_to "Enter Time", new_task_path, :data => {:icon => 'plus', :theme => 'b'}
+            %li 
+              = link_to "Previous Time", tasks_path, :data => {:icon => 'grid', :theme => 'b'}
+            %li 
+              = link_to "Edit Plants", plants_path, :data => {:icon => 'grid', :theme => 'b'}
+      - if @mobile_page_name.present?
+        %div{:data => {:role => "header", :position => 'inline'}} 
+          %h1 
+            = @mobile_page_name 
+      %div{:data => {:role => 'content'}}
+        %p#notice= notice
+        = yield(:layout)

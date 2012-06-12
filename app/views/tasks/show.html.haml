@@ -1,21 +1,21 @@
-%p#notice= notice
-
+%p
+  %b Category:
+  = @task.category
+%p
+  %b Plant:
+  = @task.plant.name if @task.plant.present?
 %p
   %b Minutes:
   = @task.minutes
 %p
-  %b Plant:
-  = @task.plant_id
-%p
-  %b User:
-  = @task.user_id
-%p
   %b Task date:
-  = @task.task_date
+  = @task.task_date.strftime("%b %d, %Y")
 %p
   %b Notes:
   = @task.notes
 
 = link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Delete This Entry', task_path(@task), :method => :delete, :confirm => "Are you sure?"
 \|
 = link_to 'Back', tasks_path
