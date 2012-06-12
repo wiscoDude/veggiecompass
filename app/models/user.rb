@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   
-protected
   def create_base_plant_list
     PlantType.all.each do |plant_type|
       plant = Plant.new(:user_id => self.id)
